@@ -9,7 +9,7 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:levir/levir.dart';
-import 'package:shrine_merchant/api/models/User.dart';
+import 'package:shrine_merchant/api/types/user.dart';
 import 'package:shrine_merchant/basics/globals.dart';
 
 class Environment extends ChangeNotifier {
@@ -46,8 +46,9 @@ class Environment extends ChangeNotifier {
       final potentialUser = env[currentUserStorageKey] as Map<String, dynamic>?;
       if (potentialUser != null) {
         _currentUser = User.fromJson(potentialUser);
-        notifyListeners();
       }
+      // Notify user logged in
+      notifyListeners();
     }
 
     // Init Globals
@@ -58,7 +59,7 @@ class Environment extends ChangeNotifier {
   }
 
   /// Whether a user has logged in.
-  bool get loggedIn => _currentUser != null;
+  bool get loggedIn => Globals.apiService.bearerToken != null;
 
   void update({required User currentUser}) {
     _currentUser = currentUser;
@@ -66,14 +67,22 @@ class Environment extends ChangeNotifier {
   }
 
   /// Invoke when an access token has been acquired and you want to log the user in
-  void login() {
-    // TODO
+  Future<void> login(String token) async {
+    final bearerToken = BearerToken(token);
+    await _synchronize(
+      bearerToken: bearerToken,
+      userDefaults: Globals.userDefaults,
+    );
+    Globals.replace(
+      apiService: Globals.apiService.login(bearerToken),
+    );
+    notifyListeners();
   }
 
   /// Invoke when you want to end the user's session
-  void logout() {
+  Future<void> logout() async {
     _currentUser = null;
-    _clearOut(
+    await _clearOut(
       userDefaults: Globals.userDefaults,
     );
     Globals.replace(
@@ -83,18 +92,18 @@ class Environment extends ChangeNotifier {
   }
 
   /// Saves some key data for the current environment
-  static void _synchronize(
+  static Future<void> _synchronize(
       {User? currentUser,
       BearerToken? bearerToken,
-      required KeyValueStore userDefaults}) {
+      required KeyValueStore userDefaults}) async {
     final data = <String, dynamic>{};
     data[currentUserStorageKey] = currentUser?.toJson();
     data[bearerTokenStorageKey] = bearerToken?.rawValue;
-    userDefaults.setString(environmentStorageKey, json.encode(data));
+    await userDefaults.setString(environmentStorageKey, json.encode(data));
   }
 
   /// Clears all key data for the current environment
-  static void _clearOut({required KeyValueStore userDefaults}) {
-    userDefaults.remove(environmentStorageKey);
+  static Future<void> _clearOut({required KeyValueStore userDefaults}) async {
+    await userDefaults.remove(environmentStorageKey);
   }
 }
