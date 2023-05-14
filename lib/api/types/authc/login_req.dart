@@ -24,7 +24,7 @@ class LoginReq {
   final String password;
 
   LoginReq({
-    this.sysType = 1,
+    this.sysType = 2,
     this.platform = "web",
     required this.username,
     required this.password,

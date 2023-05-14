@@ -41,14 +41,6 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
     source: hosted
     version: "2.11.0"
-  bindings_compatible:
-    dependency: transitive
-    description:
-      name: bindings_compatible
-      sha256: "5dd5189f7512aff8ec180a8a11bd59230aa34a2d743e65e427192b7292a78d87"
-      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
-    source: hosted
-    version: "1.0.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -57,14 +49,6 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
     source: hosted
     version: "2.1.1"
-  bruno:
-    dependency: "direct main"
-    description:
-      name: bruno
-      sha256: "18866ef04d470876dc2434eb44c2ec3c2213ef354f734f8f99cfabee93fd4027"
-      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
-    source: hosted
-    version: "3.3.0"
   build:
     dependency: transitive
     description:
@@ -270,14 +254,6 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
     source: hosted
     version: "0.1.3"
-  flutter_easyrefresh:
-    dependency: transitive
-    description:
-      name: flutter_easyrefresh
-      sha256: "5d161ee5dcac34da9065116568147d742dd25fb9bff3b10024d9054b195087ad"
-      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
-    source: hosted
-    version: "2.2.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -304,6 +280,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fluttertoast:
+    dependency: "direct main"
+    description:
+      name: fluttertoast
+      sha256: "2f9c4d3f4836421f7067a28f8939814597b27614e021da9d63e5d3fb6e212d25"
+      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
+    source: hosted
+    version: "8.2.1"
   frontend_server_client:
     dependency: transitive
     description:
@@ -376,14 +360,6 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
     source: hosted
     version: "4.0.2"
-  intl:
-    dependency: transitive
-    description:
-      name: intl
-      sha256: "910f85bce16fb5c6f614e117efa303e85a1731bb0081edf3604a2ae6e9a3cc91"
-      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
-    source: hosted
-    version: "0.17.0"
   io:
     dependency: transitive
     description:
@@ -439,14 +415,6 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
     source: hosted
     version: "1.1.1"
-  lpinyin:
-    dependency: transitive
-    description:
-      name: lpinyin
-      sha256: "0bb843363f1f65170efd09fbdfc760c7ec34fc6354f9fcb2f89e74866a0d814a"
-      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
-    source: hosted
-    version: "2.0.3"
   matcher:
     dependency: transitive
     description:
@@ -575,22 +543,6 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
     source: hosted
     version: "2.1.6"
-  petitparser:
-    dependency: transitive
-    description:
-      name: petitparser
-      sha256: cb3798bef7fc021ac45b308f4b51208a152792445cce0448c9a4ba5879dd8750
-      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
-    source: hosted
-    version: "5.4.0"
-  photo_view:
-    dependency: transitive
-    description:
-      name: photo_view
-      sha256: "8036802a00bae2a78fc197af8a158e3e2f7b500561ed23b4c458107685e645bb"
-      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
-    source: hosted
-    version: "0.14.0"
   platform:
     dependency: transitive
     description:
@@ -860,14 +812,6 @@ packages:
       url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
     source: hosted
     version: "1.0.0"
-  xml:
-    dependency: transitive
-    description:
-      name: xml
-      sha256: "5bc72e1e45e941d825fd7468b9b4cc3b9327942649aeb6fc5cdbf135f0a86e84"
-      url: "https://mirrors.tuna.tsinghua.edu.cn/dart-pub/"
-    source: hosted
-    version: "6.3.0"
   yaml:
     dependency: transitive
     description:
@@ -878,4 +822,4 @@ packages:
     version: "3.1.2"
 sdks:
   dart: ">=3.0.0-134.0.dev <4.0.0"
-  flutter: ">=3.7.0"
+  flutter: ">=3.3.0"

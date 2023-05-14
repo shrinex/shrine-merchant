@@ -12,12 +12,11 @@ import 'package:shrine_merchant/api/types/authc/login_resp.dart';
 
 extension Authc on Service {
   Stream<LoginResp> signIn(LoginReq req) {
-    final request = ClientHttpRequest(
+    return observe(ClientHttpRequest(
       body: req,
       path: "/api/v1/authc/login",
       method: HttpMethod.post,
       baseUrl: Endpoint.authc.rawValue,
-    );
-    return observe(request).map(($0) => LoginResp.fromJson($0));
+    )).map(($0) => LoginResp.fromJson($0));
   }
 }

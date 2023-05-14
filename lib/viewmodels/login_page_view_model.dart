@@ -38,9 +38,9 @@ class LoginPageViewModel
         .materialize()
         .share();
 
-    errorOccurred = login.asError(share: false);
+    errorOccurred = login.asError();
 
-    accessToken = login.asData<AccessToken>(share: false);
+    accessToken = login.asData<AccessToken>();
   }
 
   final _tapRelay = BehaviorSubject<Tuple<String, String>>();
